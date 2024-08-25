@@ -1,0 +1,219 @@
+:root{
+    --main-color: #031a32;
+    --blue-color: #031a32;
+}
+*{
+    block-size: border-box;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+    background-image: url('../Image/344.jpg');
+
+}
+.container {
+    width: 1170px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
+}
+/*start navbar*/
+.container .navbar-brand img{
+    width: 60%;
+}
+.navbar .logo{
+    color: #e6e6e7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    height: 50px;
+    font-weight: bold;
+}
+@media (max-width: 767px) {
+.navbar .logo {
+    width: 100%;
+    height: 50px;
+    }
+}
+.navbar{
+    background-color:rgb(117 117 117);
+}
+.navbar .navbar-nav .nav-link{
+    color: rgb(255, 255, 255);
+    font-size: 19px;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link:focus,
+ .navbar-nav .nav-link.active{
+    color: var(--blue-color);
+}
+/*start mega-menu*/
+.navbar-collapse{
+    position: relative;
+}
+.navbar-collapse .mega-menu{
+    position: absolute;
+    width: 100%;
+    padding: 30px;
+    left: 0;
+    background-color: white;
+    border-bottom: 3px solid var(--blue-color);
+    display: flex;
+    gap: 40px;
+    top: calc(100% + 40px);
+    visibility: hidden;
+    transition: top var(--main-transition) ,opacity var(--main-transition);
+}
+@media(max-width: 767px){
+    .navbar-collapse .mega-menu{
+        flex-direction: column;
+        gap: 0;
+        padding: 5px;
+    }
+}
+.navbar-collapse .mega-menu .image img{ 
+    max-width: 100%;
+}
+@media(max-width: 991px){
+    .navbar-collapse .mega-menu .image{
+        display: none;
+    }
+}
+.navbar-collapse .mega-menu .links{
+    flex: 1;
+    min-width: 250px;
+}
+.navbar-collapse .mega-menu .links li{
+    position: relative;
+}
+.navbar-collapse .mega-menu .links li:not(:last-child){
+    border-bottom: 1px solid #e6e6e7;
+}
+@media (max-width: 767px) {
+    .navbar-collapse .mega-menu .links:first-of-type li:last-child {
+        border-bottom: 1px solid #e9e6e6;
+    }
+}
+
+.navbar-collapse .mega-menu .links li:before{
+    position: absolute;
+    content: "";
+    background-color: #fafafa;
+    width: 0;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: var(--main-transition);
+}
+.navbar-collapse .mega-menu .links li:hover::before{
+    width: 100%;
+}
+.navbar-collapse .mega-menu .links li a{
+    color: var(--blue-color);
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    padding: 13px;
+}
+.navbar-collapse .mega-menu .links li a i{
+    margin-right:10px;
+}
+.navbar-collapse .navbar-nav > li:hover .mega-menu {
+    top: calc(100% + 1px);
+    visibility: visible;
+}
+.navbar-collapse .main-btn {
+    color: white;
+    background: linear-gradient(to right, var(--blue-color) 50%, var(--blue-color) 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+}
+/*End mega-menu*/
+.contact{
+    min-height: 600px;
+    background-size: cover;
+    position: relative;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.contact .overlay{
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    background-color: rgba(255 ,255 ,255 ,.6);
+}
+.contact .container{
+    z-index: 2;
+    position: relative;
+}
+.contact h2{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0 0 60px;
+    color: var(--main-color);
+    text-align: center;
+}
+.contact form {
+    overflow: hidden;
+    max-width: 800px;
+    margin: auto;
+    padding: 2px;
+}
+.contact form .left {
+    float: left;
+    width: 48%;
+}
+.contact form .right {
+    float: right;
+    width: 48%;
+}
+@media (max-width: 767px) {
+    .contact form .right{
+        width: 102%;
+        float: none;
+    }
+}
+@media (max-width: 767px) {
+    .contact form .left{
+        width: 96%;
+        float: none;
+    }
+}
+.contact form input:not([type="submit"]),
+.contact form textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #CCC;
+    background-color: rgba(218 ,218 ,218 ,.19);
+}
+.contact form input:not([type="submit"]):focus,
+.contact form textarea:focus {
+    outline: 1px solid var(--main-color);
+}
+.contact form input{
+    height: 40px;
+}
+.contact form textarea{
+    height: 150px;
+    width: 100%;
+}
+.contact form input[type="submit"] {
+    padding: 10px;
+    width: 100%;
+    border-color: transparent;
+    background-color: var(--main-color);
+    color: #fff;
+    cursor: pointer;
+}
+.contact form textarea:focus::-webkit-input-placeholder,
+.contact form input:not([type="submit"]):focus::-webkit-input-placeholder{
+    opacity: 0;
+    transition: .3s;
+}
+/*End contact*/
